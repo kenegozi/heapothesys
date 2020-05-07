@@ -38,7 +38,7 @@ If you would like to report a potential security issue in this project, please d
 
 Invocation with the minimum recommended set of Heapothesys parameters and a typical jHiccup configuration:
 ```
-java -Xmx<bytes> -Xms<bytes> <GC options> <other JVM options> -Xloggc:<GC log file> -javaagent:<jHiccup directory>/jHiccup.jar='-a -d 0 -i 1000 -l <jHiccup log file>' -jar <Heapothesys directory>/Heapothesys-1.0.jar -a <MB> -h <MB> -d <seconds> -c <true/false> -l <CVS output file>
+java -Xmx<bytes> -Xms<bytes> <GC options> <other JVM options> -Xloggc:<GC log file> -javaagent:<jHiccup directory>/jHiccup.jar='-a -d 0 -i 1000 -l <jHiccup log file>' -jar <Heapothesys directory>/Heapothesys-1.0.jar -a <MB> -h <MB> -d <seconds> -c <true/false> -l <CSV result file name>
 ```
 
 ### Build
@@ -65,7 +65,7 @@ The benchmark cannot always achieve the specified values. In particular, the run
 
 At end of the run, Heapothesys writes the actual achieved allocation rate and the configuration into a file.
 
-* *-l < result file name >, default: output.csv *
+* *-l < CSV result file name >, default: output.csv *
 
 If you run with a 32G or larger heap or with a collector that does not support 32-bit object pointers, aka "compressedOops", you must set this paramteter to "false". Otherwise all object size calculations are off by nearly 50%. Currently, Heapothesys does not automatically detect this.
 
